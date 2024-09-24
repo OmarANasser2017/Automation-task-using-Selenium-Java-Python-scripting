@@ -1,33 +1,14 @@
-import Pages.AmazonPage;
-import Pages.AntherPage;
-import Pages.LanguagePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import Pages.*;
 import org.testng.annotations.Test;
-import Pages.TodayDeals;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-public class Scenario_2 {
+public class Scenario_2 extends TestBase{
 
-    WebDriver driver;
+
     TodayDeals todaydeal;
     LanguagePage Engpage;
     AntherPage Ann;
+    AddToCart add;
 
-    @BeforeClass()
-    public void setDriver(){
-
-        driver=new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://www.amazon.eg/");
-    }
 
     @Test(priority = 0)
     public void TransferLanguage() throws InterruptedException {
@@ -53,10 +34,16 @@ public class Scenario_2 {
 
 
     }
+    @Test(priority = 3)
+    public void Addtocart() throws InterruptedException {
+        Thread.sleep(3000);
+        add =new AddToCart(driver);
+        add.Add();
 
 
-    @AfterClass
-    public void closeDriver() {
-        driver.close();
     }
+
+
+
+
 }

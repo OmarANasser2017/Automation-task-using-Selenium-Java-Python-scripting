@@ -8,51 +8,39 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class PaymentPage {
+public class PaymentPage extends PageBase{
 
-    private WebDriver driver;
+
+
+
+    By CheckButton = By.className("checkbox");
+    By ClickbButton = By.xpath("//div[@class=\"flex-all-c navswitchbtn\"]");
+
+
+
+    By iframe = By.className("razorpay-checkout-frame");
+
+
+    By Upibutton = By.xpath("(//div[@class=\"stack svelte-j1plw7 horizontal\"])[1]");
+    By Mobile = By.xpath("//div[@class=\"vpa-title svelte-wbn63g\"]");
 
     public PaymentPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
-    By CheckButton = By.xpath("//*[@id=\"termsChk\"]");
-    By ClickbButton = By.xpath("//*[@id=\"PgBtn\"]");
-
-
-    By FirstButton = By.xpath("//div[@data-block=\"rzp.cluster\"]//div//button[1]");
-    By ClickbuttonNum = By.xpath("//*[@id=\"upi-collect-list\"]/div/div");
-    By WriteNUM = By.xpath("//*[@id=\"vpa-upi\"]");
-
-
-
-
     public void Submitting() throws InterruptedException {
+         // Adjust the timeout as needed
+        Thread.sleep(5000);
 
+        click(CheckButton);
+        click(ClickbButton);
+        Thread.sleep(5000);
+        WebElement element = driver.findElement(iframe);
+        Thread.sleep(5000);
+        driver.switchTo().frame(element);
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(70)); // Adjust the timeout as needed
+       click(Upibutton);
 
-
-        WebElement AcceptanceButton =  wait.until(ExpectedConditions.visibilityOfElementLocated(CheckButton));
-        AcceptanceButton.click();
-
-
-        WebElement MakepaymentButton =  wait.until(ExpectedConditions.visibilityOfElementLocated(ClickbButton));
-        WebElement SS = wait.until(ExpectedConditions.elementToBeClickable(MakepaymentButton));
-        SS.click();
-        System.out.println("passsssed");
-
-
-       /*WebElement FirstPay =  wait.until(ExpectedConditions.visibilityOfElementLocated(FirstButton));
-        FirstPay.click();
-
-
-      WebElement MOBTap =  wait.until(ExpectedConditions.visibilityOfElementLocated(ClickbuttonNum));
-      MOBTap.click();
-
-
-      WebElement Enterupi =  wait.until(ExpectedConditions.visibilityOfElementLocated(WriteNUM));
-      Enterupi.sendKeys("01287599325");*/
 
 
     }

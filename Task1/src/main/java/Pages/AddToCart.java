@@ -8,20 +8,18 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class CarAccessoriesPage extends PageBase{
+public class AddToCart extends PageBase {
 
-    By Selecting = By.xpath("(//h2[@class=\"a-size-mini a-spacing-none a-color-base s-line-clamp-4\"])[1]");
+    By Addtocart = By.xpath("//input[@id=\"add-to-cart-button\"]");
 
-    public CarAccessoriesPage(WebDriver driver) {
+    public AddToCart(WebDriver driver) {
         super(driver);
     }
-
 
     public void Add() {
 
 
-        click(Selecting);
-
+       click(Addtocart);
 
 
     }

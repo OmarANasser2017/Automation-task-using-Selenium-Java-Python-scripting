@@ -9,51 +9,35 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class TodayDeals {
+public class TodayDeals extends PageBase{
 
-    private WebDriver driver;
-
-    public TodayDeals(WebDriver driver) {
-        this.driver = driver;
-    }
 
     By todayclick = By.xpath("//a[@href=\"/-/en/deals?ref_=nav_cs_gb\"]");
 
-    By SelectingGrocery = By.xpath("//span[@aria-label=\"Departments filter\"]//label//input[@data-csa-c-element-id=\"filter-department-18020637031\"]");
+    By Discount = By.xpath("(//i[@class=\"a-icon a-icon-radio\"])[18]");
 
-    By SelectingElectonics = By.xpath("//span[@aria-label=\"Departments filter\"]//label//input[@data-csa-c-element-id=\"filter-department-18018102031\"]");
+    By seemore = By.xpath("//a[@aria-labelledby=\"see-more-departments-label\"]");
 
-    By Discount = By.xpath("//span[@aria-label=\"Discount filter\"]//a[@data-csa-c-element-id=\"filter-discount-10-\"]");
+    By SelectingGrocery = By.xpath("(//i[@class=\"a-icon a-icon-radio\"])[11]");
+
+    public TodayDeals(WebDriver driver) {
+        super(driver);
+    }
+
+    //By SelectingElectonics = By.xpath("//*[@id=\"DealsGridScrollAnchor\"]/div[2]/div[1]/div/span[7]/div/label/i");
+
+
 
     public void Shopping() throws InterruptedException {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(70));
-
-
-        WebElement T = wait.until(ExpectedConditions.visibilityOfElementLocated(todayclick));
-        T.click();
-
-
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 500)");
+        click(todayclick);
+        js.executeScript("window.scrollBy(0, 10000)");
+        click(Discount);
+        click(seemore);
+        click(SelectingGrocery);
 
-
-
-        WebElement G = wait.until(ExpectedConditions.visibilityOfElementLocated(SelectingGrocery));
-        G.click();
-
-
-        WebElement E = wait.until(ExpectedConditions.visibilityOfElementLocated(SelectingElectonics));
-        E.click();
-
-
-        js.executeScript("window.scrollBy(0, 600)");
-
-
-        WebElement D = wait.until(ExpectedConditions.visibilityOfElementLocated(Discount));
-        D.click();
-
-        js.executeScript("window.scrollBy(0, 15000)");
 
 
     }

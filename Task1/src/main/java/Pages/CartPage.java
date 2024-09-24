@@ -8,23 +8,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class CartPage {
+public class CartPage extends PageBase {
 
-    private WebDriver driver;
+
+
+    By Gotocart = By.xpath("(//a[@class=\"a-button-text\"])[3]");
 
     public CartPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
-
-    By Showing = By.xpath("//*[@id=\"sw-gtc\"]/span/a");
 
     public void Show() {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(70));
-
-
-        WebElement S = wait.until(ExpectedConditions.visibilityOfElementLocated(Showing));
-        S.click();
+        click(Gotocart);
 
 
     }

@@ -8,13 +8,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class LanguagePage {
+public class LanguagePage extends PageBase{
 
-    private WebDriver driver;
-
-    public LanguagePage(WebDriver driver) {
-        this.driver = driver;
-    }
 
     By Lang = By.xpath("//span[@class=\"icp-nav-link-inner\"]");
 
@@ -22,20 +17,15 @@ public class LanguagePage {
 
     By SaveButton = By.xpath("//span[@id=\"icp-save-button\"]");
 
+    public LanguagePage(WebDriver driver) {
+        super(driver);
+    }
+
     public void Transfer() {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(70));
-
-
-        WebElement L = wait.until(ExpectedConditions.visibilityOfElementLocated(Lang));
-        L.click();
-
-        WebElement E = wait.until(ExpectedConditions.visibilityOfElementLocated(Eng));
-        E.click();
-
-        WebElement S = wait.until(ExpectedConditions.visibilityOfElementLocated(SaveButton));
-        S.click();
-
+        click(Lang);
+        click(Eng);
+        click(SaveButton);
 
 
     }

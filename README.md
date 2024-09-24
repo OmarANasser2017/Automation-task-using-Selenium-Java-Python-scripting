@@ -1,5 +1,9 @@
 # Automation task using Selenium/Java & Python scripting
 
+## Update V2
+
+I optimized the code by improving algorithm efficiency and memory management, ensuring better performance and resource usage. Additionally, I enhanced adherence to OOP principles, implementing design patterns and improving encapsulation for better modularity. In Task 1, I noted that changes to the Amazon website now prevent using multiple filters simultaneously, which impacts our approach. I also developed detailed test cases, focusing on edge scenarios to ensure robustness and reliability, leading to a more maintainable and scalable codebase.
+
 ## Description
 
 This Selenium automation tasks utilize the Page Object Model (POM) design pattern to streamline the testing process. By encapsulating web elements and their related functionality into separate classes, the code becomes modular and easier to maintain. With POM, each page or component has its own corresponding class, enhancing code reusability and readability. Selenium's powerful features are leveraged to interact with web elements and simulate user actions such as clicking buttons and entering text, ensuring a robust and efficient testing framework. Meanwhile, automate data extraction from a CSV file and perform statistical analysis using Python, leveraging libraries like pandas. This streamlines data processing, reducing error margins and manual intervention. Python's scripting capabilities facilitate quick and accurate data insights, paving the way for more complex analysis pipelines. These automation tasks enhance productivity, ensuring seamless execution and informed decision-making.
@@ -26,7 +30,7 @@ This Selenium automation tasks utilize the Page Object Model (POM) design patter
 
   <ol>
      <li>Open today's deals</li>
-     <li>from the left side filters select "Headphones" and "grocery"</li>
+     <li>from the left side filters select "grocery"</li>
      <li>from the discount part choose "10% off or more"</li>
      <li>go to the fourth page then select any item and add it to the cart</li>
   </ol>
